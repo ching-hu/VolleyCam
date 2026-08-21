@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VolleyCam 1.0 user manual, FAQ, troubleshooting guide, and support information.">
+  <title>VolleyCam Help Center</title>
+  <style>
+    :root{
+      --bg:#f6f8fc;
+      --surface:#ffffff;
+      --ink:#172033;
+      --muted:#5f6b7d;
+      --line:#dfe5ef;
+      --brand:#1c4f9c;
+      --brand-2:#2f6bc4;
+      --accent:#e9f1ff;
+      --warning:#fff6d8;
+      --warning-border:#dba90c;
+      --success:#e8f7ef;
+      --success-border:#2f8f57;
+      --danger:#fff0f0;
+      --danger-border:#c44747;
+      --radius:16px;
+      --shadow:0 8px 24px rgba(24,42,78,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:var(--brand);text-decoration-thickness:.08em;text-underline-offset:.14em}
+    a:hover{text-decoration-thickness:.14em}
+    header{
+      background:linear-gradient(135deg,#163c78 0%,#2f6bc4 65%,#7ba8ed 100%);
+      color:white;
+      padding:48px 20px 38px;
+    }
+    .hero{max-width:1080px;margin:0 auto}
+    .hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:0 0 12px}
+    .hero p{max-width:760px;font-size:1.08rem;margin:0;color:#edf4ff}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.28);
+      border-radius:999px;padding:7px 12px;font-size:.92rem
+    }
+    .shell{max-width:1080px;margin:0 auto;padding:24px 20px 56px}
+    .nav{
+      background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:18px 20px;margin-top:-22px;position:relative
+    }
+    .nav strong{display:block;margin-bottom:8px}
+    .nav-links{display:flex;flex-wrap:wrap;gap:8px 16px}
+    .nav-links a{font-weight:600;text-decoration:none}
+    section{
+      background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:26px;margin-top:24px
+    }
+    h2{font-size:1.65rem;margin:0 0 12px;color:#163c78}
+    h3{font-size:1.18rem;margin:24px 0 8px;color:#244d86}
+    h4{font-size:1rem;margin:18px 0 6px}
+    p{margin:8px 0 12px}
+    ul,ol{padding-left:1.35rem}
+    li{margin:.35rem 0}
+    .lead{font-size:1.08rem;color:#32425c}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .card{
+      border:1px solid var(--line);border-radius:14px;padding:18px;background:#fbfcff
+    }
+    .card h3{margin-top:0}
+    .steps{counter-reset:steps;list-style:none;padding:0;margin:18px 0 0}
+    .steps li{
+      counter-increment:steps;position:relative;padding:0 0 18px 48px;min-height:38px
+    }
+    .steps li::before{
+      content:counter(steps);position:absolute;left:0;top:0;width:32px;height:32px;
+      display:grid;place-items:center;border-radius:50%;background:var(--brand);color:white;font-weight:700
+    }
+    .callout{
+      border-left:5px solid var(--brand);background:var(--accent);
+      padding:14px 16px;border-radius:10px;margin:16px 0
+    }
+    .callout.warning{background:var(--warning);border-color:var(--warning-border)}
+    .callout.success{background:var(--success);border-color:var(--success-border)}
+    .callout.danger{background:var(--danger);border-color:var(--danger-border)}
+    .small{font-size:.92rem;color:var(--muted)}
+    code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      background:#edf1f7;padding:.1em .35em;border-radius:5px
+    }
+    details{
+      border-top:1px solid var(--line);padding:14px 0
+    }
+    details:first-of-type{border-top:0}
+    summary{cursor:pointer;font-weight:700;color:#213f6b}
+    details p{margin:10px 0 0}
+    table{width:100%;border-collapse:collapse;margin:14px 0}
+    th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+    th{background:#edf3fc;color:#1f477f}
+    .placeholder{
+      display:inline-block;background:#fff2cc;border:1px solid #e0bc4b;
+      color:#744d00;padding:2px 6px;border-radius:5px;font-weight:700
+    }
+    footer{color:var(--muted);text-align:center;padding:28px 20px 42px;font-size:.92rem}
+    .top-link{display:inline-block;margin-top:14px;font-size:.9rem}
+    @media (max-width:760px){
+      .grid{grid-template-columns:1fr}
+      section{padding:20px}
+      header{padding-top:38px}
+    }
+    @media print{
+      body{background:white}
+      header{background:white;color:black;padding:16px 0}
+      .hero p{color:black}
+      .badge{border:1px solid #999;background:white}
+      .shell{max-width:none;padding:0}
+      .nav{display:none}
+      section{box-shadow:none;break-inside:avoid;border-color:#bbb}
+      a{color:black}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="hero">
+    <h1>VolleyCam Help Center</h1>
+    <p>User manual, frequently asked questions, troubleshooting guidance, and support information for VolleyCam 1.0.</p>
+    <div class="badges">
+      <span class="badge">Version 1.0</span>
+      <span class="badge">Local-first recording</span>
+      <span class="badge">Camera + Remote workflow</span>
+      <span class="badge">No forced cloud upload</span>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+  <nav class="nav" aria-label="Help center contents">
+    <strong>Jump to</strong>
+    <div class="nav-links">
+      <a href="#quick-start">Quick Start</a>
+      <a href="#manual">User Manual</a>
+      <a href="#faq">FAQ</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+      <a href="#support">Support</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#limitations">Known Limitations</a>
+    </div>
+  </nav>
+
+  <section id="quick-start">
+    <h2>Quick Start</h2>
+    <p class="lead">Use one iPhone as the Camera and, optionally, a second iPhone as the Remote.</p>
+    <ol class="steps">
+      <li><strong>Prepare the Camera phone.</strong> Mount it securely on a tripod, open VolleyCam, and choose Camera mode.</li>
+      <li><strong>Enter match information.</strong> Select or enter team names, tournament name, team colors, set information, and scoreboard preferences.</li>
+      <li><strong>Connect the Remote.</strong> On the Camera, display the QR code. On the second iPhone, open Remote mode and scan the Camera’s QR code.</li>
+      <li><strong>Verify framing.</strong> Use the automatic Remote preview before recording to confirm that the full court is visible.</li>
+      <li><strong>Start recording.</strong> Start locally or from the Remote. During recording, automatic preview stops; use Camera View when you need a current snapshot.</li>
+      <li><strong>Keep score and tag rallies.</strong> Use the Remote score areas and Heart control. The Camera remains the authoritative recorder and scoreboard owner.</li>
+      <li><strong>Respond to Camera movement.</strong> During recording, a meaningful framing shift can trigger a Remote warning with an automatic current preview.</li>
+      <li><strong>Stop, review, and export.</strong> Open Match Browser to preview rallies, adjust trim points, and export individual or multiple clips to Photos.</li>
+    </ol>
+    <div class="callout success">
+      <strong>Match-day recommendation:</strong> Fully charge both phones, confirm available storage, enable Local Network access, and perform a short connection and recording test before the first serve.
+    </div>
+  </section>
+
+  <section id="manual">
+    <h2>User Manual</h2>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Camera Mode</h3>
+        <ul>
+          <li>Records locally on the Camera iPhone.</li>
+          <li>Supports full-match and rally-oriented workflows.</li>
+          <li>Displays the live scoreboard when enabled.</li>
+          <li>Supports zoom and compatible gimbal controls.</li>
+          <li>Can use a dark screen mode to reduce brightness during long recordings.</li>
+          <li>Shows QR pairing controls for connecting the Remote.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Remote Mode</h3>
+        <ul>
+          <li>Starts and stops recording remotely.</li>
+          <li>Displays Camera connection, battery, storage, recording status, and preview information where available.</li>
+          <li>Lets the operator keep score without touching the tripod-mounted Camera.</li>
+          <li>Supports Heart tagging and current Camera View requests.</li>
+          <li>Receives displacement warnings while recording.</li>
+        </ul>
+      </article>
+    </div>
+
+    <h3>Connecting Camera and Remote</h3>
+    <ol>
+      <li>Install and open VolleyCam on both iPhones.</li>
+      <li>Choose <strong>Camera</strong> on the tripod phone.</li>
+      <li>Choose <strong>Remote</strong> on the courtside phone.</li>
+      <li>On the Camera, open the QR code.</li>
+      <li>On the Remote, tap Scan and scan the Camera QR code.</li>
+      <li>Accept Local Network permission on both devices if prompted.</li>
+      <li>Wait until the Remote reports a connected, command-ready state.</li>
+    </ol>
+    <div class="callout">
+      The core Camera-to-Remote workflow is local. It does not require uploading the match or using gym internet.
+    </div>
+
+    <h3>Match Setup and Recall Lists</h3>
+    <p>VolleyCam can remember commonly used team names and tournament names to reduce repeated typing during tournaments. Select a recalled value or enter a new one. Verify the current teams before recording.</p>
+    <p>The team-color palette contains ten choices. Existing saved team-color selections retain their intended values.</p>
+
+    <h3>Scoreboard</h3>
+    <p>The live scoreboard can show team names, team colors, scores, set number, serve indicator, and elapsed recording time. When scoreboard burn-in is enabled, the same match context is rendered into the saved video.</p>
+    <p>Turn the scoreboard off before recording when you want clean footage without an overlay. When disabled, the saved video should contain neither the scoreboard nor its timer.</p>
+
+    <h3>Remote Score Controls</h3>
+    <p>The large Home and Opponent score regions are designed for vertical swipe control. The intended mapping is:</p>
+    <table>
+      <thead><tr><th>Gesture</th><th>Action</th><th>Confirmation</th></tr></thead>
+      <tbody>
+        <tr><td>Swipe up on Home</td><td>Increase Home score</td><td>One firm haptic after Camera acknowledgement</td></tr>
+        <tr><td>Swipe down on Home</td><td>Decrease Home score</td><td>One firm haptic after Camera acknowledgement</td></tr>
+        <tr><td>Swipe up on Opponent</td><td>Increase Opponent score</td><td>Two firm haptics after Camera acknowledgement</td></tr>
+        <tr><td>Swipe down on Opponent</td><td>Decrease Opponent score</td><td>Two firm haptics after Camera acknowledgement</td></tr>
+        <tr><td>Undo</td><td>Reverse the latest supported score operation</td><td>Three clearly separated long haptics after acknowledgement</td></tr>
+      </tbody>
+    </table>
+    <p class="small">A success haptic should occur only after the Camera confirms the authoritative score update. A disconnected or rejected command should not produce a success pattern.</p>
+
+    <h3>Heart Tagging</h3>
+    <p>Use the Heart control to mark important rallies while they happen.</p>
+    <ul>
+      <li>In Full Match workflows, a Heart can preserve a time marker and favorite metadata.</li>
+      <li>In Rally Point workflows, a Heart can mark the short clip as a favorite.</li>
+      <li>Supported exported clips can also be marked as Favorites in Apple Photos.</li>
+    </ul>
+
+    <h3>Automatic Preview and Camera View</h3>
+    <ul>
+      <li><strong>Before recording:</strong> the Remote receives a low-bandwidth automatic preview, approximately once per second at most.</li>
+      <li><strong>During recording:</strong> automatic preview stops to protect recording performance.</li>
+      <li><strong>During recording:</strong> use Camera View to request one current snapshot.</li>
+      <li><strong>After recording:</strong> automatic preview resumes.</li>
+    </ul>
+    <p>Camera View is a snapshot request, not a continuous recording-time video stream.</p>
+
+    <h3>Camera Displacement Warnings</h3>
+    <p>While recording in the applicable tripod/full-match workflow, VolleyCam monitors device orientation for an estimated framing shift of more than approximately two percent horizontally or vertically.</p>
+    <ul>
+      <li>No warning should appear while the Camera is not recording.</li>
+      <li>A qualifying incident creates one warning and one haptic on the Remote.</li>
+      <li>A current Camera preview appears automatically with the warning.</li>
+      <li>Use Refresh Preview after adjusting the tripod.</li>
+      <li>Use Set New Baseline only after the Camera is stable.</li>
+      <li>Dismiss closes the current warning but must not disable later warnings.</li>
+    </ul>
+
+    <h3>Match Browser, Trimming, and Export</h3>
+    <ol>
+      <li>Open Match Browser.</li>
+      <li>Select the recorded match or relevant rally marker.</li>
+      <li>Preview the proposed clip.</li>
+      <li>Use Adjust Trim to refine start and end times.</li>
+      <li>Export one rally or choose a batch export.</li>
+      <li>Confirm the clip in Apple Photos.</li>
+    </ol>
+    <p>VolleyCam is designed to preserve source frame rate, video orientation, and audio in exported rally clips. The applicable scoreboard context is retained when scoreboard export is enabled.</p>
+
+    <h3>File Names and Metadata</h3>
+    <p>VolleyCam may use meaningful names and descriptions based on match information such as team names, tournament name, set, rally timing, scores, and favorite status. Metadata helps identify footage without searching through anonymous files.</p>
+
+    <h3>Support VolleyCam</h3>
+    <p>The Support VolleyCam page is located near the top of Settings. Tips are optional consumable In-App Purchases processed by Apple.</p>
+    <ul>
+      <li>No popup asks for a tip.</li>
+      <li>Tips do not unlock features.</li>
+      <li>Tips do not grant commercial-use rights.</li>
+      <li>Consumable tips are not restored as permanent entitlements.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <details open>
+      <summary>Do I need two iPhones?</summary>
+      <p>No. You can record locally using Camera mode on one iPhone. A second iPhone adds the Remote workflow for courtside recording control, scorekeeping, previews, Heart tagging, and displacement warnings.</p>
+    </details>
+
+    <details>
+      <summary>Does VolleyCam require gym Wi-Fi, cellular service, or a cloud account?</summary>
+      <p>The core recording and Camera-to-Remote workflow is local and does not require uploading match video or creating a VolleyCam cloud account. Device-to-device performance can still be affected by the local radio environment.</p>
+    </details>
+
+    <details>
+      <summary>Does VolleyCam upload my videos?</summary>
+      <p>No. VolleyCam records locally and saves video to the user’s device and Apple Photos when requested. VolleyCam does not operate a developer cloud service for uploading match footage.</p>
+    </details>
+
+    <details>
+      <summary>Does VolleyCam add a watermark?</summary>
+      <p>No. VolleyCam does not add a promotional watermark to your footage.</p>
+    </details>
+
+    <details>
+      <summary>Why does automatic Camera preview stop during recording?</summary>
+      <p>This protects recording performance and Remote responsiveness. During recording, use Camera View for a single current snapshot. Automatic preview resumes after recording stops.</p>
+    </details>
+
+    <details>
+      <summary>Why did I receive a Camera displacement warning?</summary>
+      <p>The Camera orientation changed enough to suggest a meaningful framing shift while recording. Review the automatic preview, adjust the tripod if needed, request another preview, and set a new baseline only after the Camera is stable.</p>
+    </details>
+
+    <details>
+      <summary>Will every tripod movement be detected?</summary>
+      <p>No. The warning is based on device motion and orientation. A pure lateral translation that changes the view without changing phone orientation may not be reliably detected.</p>
+    </details>
+
+    <details>
+      <summary>What does Dismiss do on a displacement warning?</summary>
+      <p>Dismiss closes the current warning. It does not intentionally set a new baseline and should not prevent a later distinct Camera movement from creating another warning.</p>
+    </details>
+
+    <details>
+      <summary>Can I lock the Remote phone and continue controlling the match?</summary>
+      <p>No. VolleyCam does not provide Lock Screen score or recording controls. Keep the Remote app active when reliable scorekeeping, Camera control, and warnings are required.</p>
+    </details>
+
+    <details>
+      <summary>Can I control scores by voice or phone gestures?</summary>
+      <p>Voice scoring and IMU-based scoring are not included in VolleyCam 1.0. Score changes use the visible Remote controls and swipe regions.</p>
+    </details>
+
+    <details>
+      <summary>Does VolleyCam include live streaming?</summary>
+      <p>YouTube Live Streaming is not included in the production Version 1.0 experience.</p>
+    </details>
+
+    <details>
+      <summary>What is Multi-Device Sync?</summary>
+      <p>Commercial or broader multi-device synchronization is not part of the production Version 1.0 experience. The ordinary two-device Camera and Remote workflow remains available.</p>
+    </details>
+
+    <details>
+      <summary>Does VolleyCam automatically identify players or create AI highlights?</summary>
+      <p>No. Player tracking, jersey recognition, and automatic AI highlight creation are not included in Version 1.0. VolleyCam uses intentional Heart tags, Match Browser review, trimming, and export.</p>
+    </details>
+
+    <details>
+      <summary>Why is my exported file large?</summary>
+      <p>High-resolution, high-frame-rate volleyball video requires significant storage. VolleyCam is designed to preserve media quality rather than heavily recompressing every export.</p>
+    </details>
+
+    <details>
+      <summary>Do optional tips unlock features?</summary>
+      <p>No. Tips are entirely voluntary and do not change the app’s capabilities.</p>
+    </details>
+
+    <details>
+      <summary>Does VolleyCam collect or share my data?</summary>
+      <p>VolleyCam does not collect, sell, share, or track user data. Match information and media remain on the user’s devices unless the user chooses to save or share them through Apple system features.</p>
+    </details>
+  </section>
+
+  <section id="troubleshooting">
+    <h2>Troubleshooting</h2>
+
+    <h3>Remote will not connect</h3>
+    <ol>
+      <li>Confirm both devices have VolleyCam open.</li>
+      <li>Confirm both devices granted Local Network permission.</li>
+      <li>Close the previous pairing session on both devices.</li>
+      <li>Display a fresh QR code on the Camera and scan it from the Remote.</li>
+      <li>Keep both apps in the foreground during pairing.</li>
+      <li>Restart VolleyCam on both devices if the old peer remains visible.</li>
+    </ol>
+
+    <h3>Remote is stuck on “Configuring”</h3>
+    <ol>
+      <li>Wait briefly for Camera format and connection status to finish synchronizing.</li>
+      <li>Confirm the Camera is not showing a permission or setup prompt.</li>
+      <li>Close and reopen the Remote session.</li>
+      <li>Reconnect using a fresh QR pairing session.</li>
+      <li>If it remains stuck, record the app version, build number, both iPhone models, and both iOS versions for support.</li>
+    </ol>
+
+    <h3>Score swipes do not respond</h3>
+    <ol>
+      <li>Confirm the Remote shows Connected and a command-ready state.</li>
+      <li>Begin the swipe inside the visible Home or Opponent score region.</li>
+      <li>Use a deliberate primarily vertical swipe rather than a short tap or horizontal drag.</li>
+      <li>Confirm no full-screen warning, setup sheet, or configuration overlay remains open.</li>
+      <li>Disconnect and reconnect the Remote.</li>
+      <li>Do not continue scoring blindly if the Camera does not acknowledge updates.</li>
+    </ol>
+    <div class="callout warning">
+      A success haptic should follow Camera acknowledgement. If the score does not change and no success haptic occurs, verify the Camera connection before continuing.
+    </div>
+
+    <h3>No Camera preview before recording</h3>
+    <ol>
+      <li>Confirm Camera and Remote are connected.</li>
+      <li>Verify Camera permission is enabled on the Camera phone.</li>
+      <li>Confirm the Camera preview itself is running.</li>
+      <li>Reconnect the devices if the Remote preview remains blank.</li>
+    </ol>
+
+    <h3>No displacement warning during recording</h3>
+    <ol>
+      <li>Confirm recording is active.</li>
+      <li>Confirm the applicable tripod/full-match workflow is active.</li>
+      <li>Confirm the Remote is connected.</li>
+      <li>Allow the Camera to remain stable long enough to establish a baseline.</li>
+      <li>Rotate or tilt the Camera enough to create a settled framing change; brief vibration that returns to the same pose may be ignored.</li>
+    </ol>
+
+    <h3>Rally export fails or does not appear in Photos</h3>
+    <ol>
+      <li>Confirm Photos permission is enabled.</li>
+      <li>Confirm sufficient free storage exists.</li>
+      <li>Verify the selected trim range is valid.</li>
+      <li>Keep VolleyCam open until export completes.</li>
+      <li>Check the Photos library and Recently Added album.</li>
+      <li>Retry one rally before retrying a large batch.</li>
+    </ol>
+
+    <h3>Optional tip products are unavailable</h3>
+    <ol>
+      <li>Confirm internet access is available for Apple’s StoreKit service.</li>
+      <li>Open Support VolleyCam again and use Retry.</li>
+      <li>Confirm In-App Purchases are allowed under Screen Time restrictions.</li>
+      <li>For test builds, confirm the products exist in the current Sandbox/App Store Connect environment.</li>
+    </ol>
+  </section>
+
+  <section id="support">
+    <h2>Support</h2>
+    <p>For support, provide enough detail to reproduce the issue without including private match footage or personal information unless specifically requested.</p>
+
+    <h3>Include this information</h3>
+    <ul>
+      <li>VolleyCam version and build number</li>
+      <li>Camera iPhone model and iOS version</li>
+      <li>Remote iPhone model and iOS version</li>
+      <li>Whether the issue occurred before, during, or after recording</li>
+      <li>Exact steps that caused the issue</li>
+      <li>What you expected and what actually happened</li>
+      <li>Whether Camera and Remote were connected</li>
+      <li>A screenshot of the app state, when safe</li>
+      <li>Relevant Xcode console excerpts for development builds</li>
+    </ul>
+
+    <h3>Contact</h3>
+    <p><span class="placeholder">REPLACE WITH YOUR PUBLIC SUPPORT EMAIL OR SUPPORT URL BEFORE PUBLISHING</span></p>
+    <p>Suggested format: <code>support@yourdomain.com</code> or a public support form URL.</p>
+
+    <h3>Responsible recording</h3>
+    <p>Users are responsible for following venue rules and obtaining any permission required before recording or sharing video, especially footage containing minors.</p>
+  </section>
+
+  <section id="privacy">
+    <h2>Privacy</h2>
+    <p>VolleyCam does not collect, sell, share, or track user data. Recordings, scores, match metadata, team names, tournament names, and Heart tags remain on the user’s devices unless the user deliberately saves or shares them through Apple system features.</p>
+    <p>Optional tips are processed by Apple. VolleyCam does not store payment-card information.</p>
+    <p><a href="VolleyCam_Privacy_Policy.html">Read the VolleyCam Privacy Policy</a></p>
+    <div class="callout warning">
+      Before hosting this help center, verify that the privacy-policy filename or URL matches the location used on your website and in App Store Connect.
+    </div>
+  </section>
+
+  <section id="limitations">
+    <h2>Known Version 1.0 Limitations</h2>
+    <ul>
+      <li>Core Motion cannot reliably detect every pure lateral tripod shift when phone orientation does not change.</li>
+      <li>The Remote must remain active; Lock Screen score and recording controls are not supported.</li>
+      <li>YouTube Live Streaming is not included in Version 1.0.</li>
+      <li>Commercial Multi-Device Sync is not included in Version 1.0.</li>
+      <li>Voice scoring and IMU score gestures are not included in Version 1.0.</li>
+      <li>Player tracking, jersey recognition, and player markers are not included.</li>
+      <li>VolleyCam does not automatically generate AI highlights or player statistics.</li>
+      <li>Wireless performance can vary in crowded radio environments.</li>
+    </ul>
+    <a class="top-link" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
+  </section>
+</main>
+
+<footer>
+  <p><strong>VolleyCam Help Center</strong></p>
+  <p>Version 1.0 · Last updated July 29, 2026</p>
+  <p>VolleyCam is free for personal and noncommercial community use. Optional tips are voluntary and unlock nothing.</p>
+</footer>
+</body>
+</html>
