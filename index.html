@@ -343,7 +343,8 @@
 
     <details>
       <summary>Does VolleyCam include live streaming?</summary>
-      <p>YouTube Live Streaming is not included in the production Version 1.0 experience.</p>
+      <p>Yes. Open Settings → YouTube Live Streaming and either sign in with YouTube to select or create a broadcast, or use the manual RTMPS fallback. Camera Mode owns the stream; a paired Remote can request Start or Stop and displays the Camera’s authoritative live state and health.</p>
+      <p>Local recording and livestreaming are independent. Pausing or resuming the local recording never pauses, restarts, or disconnects an active livestream.</p>
     </details>
 
     <details>
@@ -368,7 +369,7 @@
 
     <details>
       <summary>Does VolleyCam collect or share my data?</summary>
-      <p>VolleyCam does not collect, sell, share, or track user data. Match information and media remain on the user’s devices unless the user chooses to save or share them through Apple system features.</p>
+      <p>VolleyCam does not operate advertising, analytics, tracking, or media servers. Core match information and media remain on the user’s devices unless the user chooses to save or share them. Optional YouTube Live sends the selected live video/audio and broadcast information directly to Google/YouTube.</p>
     </details>
   </section>
 
@@ -461,8 +462,7 @@
     </ul>
 
     <h3>Contact</h3>
-    <p><span class="placeholder">REPLACE WITH YOUR PUBLIC SUPPORT EMAIL OR SUPPORT URL BEFORE PUBLISHING</span></p>
-    <p>Suggested format: <code>support@yourdomain.com</code> or a public support form URL.</p>
+    <p><a href="mailto:ching.hu.ch@gmail.com">ching.hu.ch@gmail.com</a></p>
 
     <h3>Responsible recording</h3>
     <p>Users are responsible for following venue rules and obtaining any permission required before recording or sharing video, especially footage containing minors.</p>
@@ -470,12 +470,9 @@
 
   <section id="privacy">
     <h2>Privacy</h2>
-    <p>VolleyCam does not collect, sell, share, or track user data. Recordings, scores, match metadata, team names, tournament names, and Heart tags remain on the user’s devices unless the user deliberately saves or shares them through Apple system features.</p>
+    <p>VolleyCam does not operate advertising, analytics, tracking, or media servers. Recordings, scores, match metadata, team names, tournament names, and Heart tags remain on the user’s devices unless the user deliberately saves or shares them. When YouTube Live is selected, the live video/audio, scoreboard content, broadcast details, and selected channel information are sent directly to Google/YouTube to provide the broadcast.</p>
     <p>Optional tips are processed by Apple. VolleyCam does not store payment-card information.</p>
     <p><a href="VolleyCam_Privacy_Policy.html">Read the VolleyCam Privacy Policy</a></p>
-    <div class="callout warning">
-      Before hosting this help center, verify that the privacy-policy filename or URL matches the location used on your website and in App Store Connect.
-    </div>
   </section>
 
   <section id="limitations">
@@ -483,7 +480,7 @@
     <ul>
       <li>Core Motion cannot reliably detect every pure lateral tripod shift when phone orientation does not change.</li>
       <li>The Remote must remain active; Lock Screen score and recording controls are not supported.</li>
-      <li>YouTube Live Streaming is not included in Version 1.0.</li>
+      <li>YouTube Live Streaming is foreground-only and requires a live-enabled YouTube channel or a valid manual RTMPS destination.</li>
       <li>Commercial Multi-Device Sync is not included in Version 1.0.</li>
       <li>Voice scoring and IMU score gestures are not included in Version 1.0.</li>
       <li>Player tracking, jersey recognition, and player markers are not included.</li>
@@ -496,7 +493,7 @@
 
 <footer>
   <p><strong>VolleyCam Help Center</strong></p>
-  <p>Version 1.0 · Last updated July 29, 2026</p>
+  <p>Version 1.0 · Last updated August 25, 2026</p>
   <p>VolleyCam is free for personal and noncommercial community use. Optional tips are voluntary and unlock nothing.</p>
 </footer>
 </body>
